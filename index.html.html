@@ -1,0 +1,48 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink; /* Set background color to pink */
+            color: #333;
+            text-align: center;
+            overflow: hidden; /* Hide overflow */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="text-container"></div>
+
+    <script>
+        let text = "I love you🥺🤍<br>";
+        let repeatText = text.repeat(10000);
+        document.getElementById("text-container").innerHTML = repeatText;
+
+        // Auto-scroll function
+        function autoScroll() {
+            let container = document.querySelector(".container");
+            container.scrollBy(0, 1); // Scroll down by 1 pixel
+            if (container.scrollTop + container.clientHeight < container.scrollHeight) {
+                setTimeout(autoScroll, 10); // Adjust speed (lower = faster)
+            }
+        }
+
+        // Start scrolling after a short delay
+        setTimeout(autoScroll, 1000);
+    </script>
+</body>
+</html>
